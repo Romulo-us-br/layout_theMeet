@@ -1,0 +1,22 @@
+{
+  "name": "layout_themett",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-img": "shx cp -r src/image dist/",
+    "build": "npm run copy-img && sass src/scss/main.scss dist/css/main.css --style compressed",
+    "sass-watch": "sass --watch src/scss/main.scss:dist/css/main.css",
+    "deploy": "npm run build && npx gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "sass": "^1.97.3",
+    "shx": "^0.4.0"
+  }
+}
