@@ -1,0 +1,41 @@
+  .header {
+    @include page-grid;
+    background-image: url('../image/background/header-background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; // Comportamento padrão para mobile
+    height: 100vh;
+
+    @include on-tablet {
+      background-position: 100% auto;
+    }
+
+    @include on-desktop {
+      background-repeat: repeat;
+      background-size: contain;
+    }
+
+
+    &__menu {
+      grid-column: 1/-1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 10vh;
+
+      &-right {
+        display: flex;
+        gap: 40px;
+
+        &>a {
+          display: flex;
+        }
+      }
+    }
+
+    &-h1title {
+      color: white;
+      text-align: center;
+      grid-column: 1/-1;
+    }
+  }

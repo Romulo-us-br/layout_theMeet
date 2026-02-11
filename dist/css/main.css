@@ -1,0 +1,168 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  --columns: 2;
+  --padd: 20px;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  padding-inline: var(--padd);
+}
+@media (min-width: 680px) {
+  .header {
+    --columns: 6;
+    --padd: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .header {
+    --columns: 12;
+    --padd: 120px;
+  }
+}
+.header {
+  background-image: url("../image/background/header-background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+@media (min-width: 680px) {
+  .header {
+    background-position: 100% auto;
+  }
+}
+@media (min-width: 1280px) {
+  .header {
+    background-repeat: repeat;
+    background-size: contain;
+  }
+}
+.header__menu {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+}
+.header__menu-right {
+  display: flex;
+  gap: 40px;
+}
+.header__menu-right > a {
+  display: flex;
+}
+.header-h1title {
+  color: white;
+  text-align: center;
+  grid-column: 1/-1;
+}
+
+.menupage {
+  --columns: 2;
+  --padd: 20px;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  padding-inline: var(--padd);
+}
+@media (min-width: 680px) {
+  .menupage {
+    --columns: 6;
+    --padd: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .menupage {
+    --columns: 12;
+    --padd: 120px;
+  }
+}
+.menupage {
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  position: fixed;
+  background-color: black;
+  color: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.3s ease;
+}
+.menupage:target {
+  opacity: 1;
+  pointer-events: all;
+  transform: scaleX(1);
+}
+.menupage__menu {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+}
+
+.hours {
+  --columns: 2;
+  --padd: 20px;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  padding-inline: var(--padd);
+}
+@media (min-width: 680px) {
+  .hours {
+    --columns: 6;
+    --padd: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .hours {
+    --columns: 12;
+    --padd: 120px;
+  }
+}
+.hours {
+  padding-block: 100px;
+}
+.hours-container {
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 32px;
+}
+.hours-title {
+  grid-column: 1/-1;
+}
+.hours-title-h2title {
+  font-size: 32px;
+}
+.hours-title-redsuptitle {
+  color: red;
+}
+.hours__content {
+  grid-column: 1/-1;
+}
+.hours__content-h4title {
+  font-size: 26px;
+}
+.hours__content-calendar {
+  display: flex;
+  gap: 24px;
+}
+.hours__content-calendar > ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.hours__content-closed {
+  padding-top: 16px;
+}
+
+/*# sourceMappingURL=main.css.map */
