@@ -28,8 +28,8 @@
     }
 
     &-h1title {
-      color: white;
       text-align: center;
       grid-column: 1/-1;
+      @include h1-style;
     }
   }

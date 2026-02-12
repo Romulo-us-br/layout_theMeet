@@ -1,31 +1,49 @@
-
 .hours {
   @include page-grid;
   padding-block: 100px;
-  &-container{
+
+  &-container {
     grid-column: 1/-1;
     display: flex;
     flex-direction: column;
     gap: 24px;
     padding-top: 32px;
+
+    @include on-tablet {
+      grid-column: 4/ -1;
+      padding: 0px;
+    }
+    @include on-desktop{
+      grid-column: 6/-2;
+    }
   }
+
   &-title {
     grid-column: 1/-1;
 
+    @include on-tablet {
+      grid-column: span 3;
+    }
+    @include on-desktop{
+      grid-column: span 5;
+    }
+
     &-h2title {
-      font-size: 32px;
+      @include h2-style;
     }
 
     &-redsuptitle {
-      color: red;
+      @include redsub-style;
     }
   }
 
   &__content {
     grid-column: 1/-1;
 
-    &-h4title {
-      font-size: 26px;
+
+
+    &-h3title {
+      @include h3-style;
     }
 
     &-calendar {
@@ -42,6 +60,17 @@
     &-closed {
       padding-top: 16px;
     }
+
   }
+
+}
+
+.regularbold {
+  @include regularbold-text;
+
+}
+
+.regular {
+  @include regular-text;
 
 }

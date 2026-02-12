@@ -1,39 +1,82 @@
-.contact{
+.contact {
   @include page-grid;
   padding-bottom: 100px;
-  &-h2title{
+
+  &-h2title {
     grid-column: 1/-1;
+    @include h2-style;
+    text-align: center;
+    padding-bottom: 48px;
   }
-  &-container{
+
+  &-container {
     grid-column: 1/-1;
     display: flex;
     flex-direction: column;
     gap: 48px;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+      flex-direction: row;
+    }
   }
-  &-content{
-    &-title{
 
+  &-content {
+    &-title {
+      @include regularbold-text;
     }
-    &-subtitle{
-      color:#161616;
+
+    &-subtitle {
+      @include regular-text;
     }
-    &-link{
+
+    &-link {
       text-decoration: none;
-      color:black;
+      color: black;
     }
-    &-form{
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      &-input{
 
-      }
-      &-textarea{
-        
-      }
-      &-button{
-        margin-top: 16px;
-      }
+
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    grid-column: 1/-1;
+    padding-top: 48px;
+
+    @include on-tablet {
+      padding: 0;
+      grid-column: 4/-1;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+
+    &-input {
+      background-color: $backwhite;
+      @include regular-text;
+      height: 48px;
+      padding: 14px 12px;
+    }
+
+    &-textarea {
+      background-color: $backwhite;
+      @include regular-text;
+      height: 144px;
+      padding: 14px 12px;
+
+
+    }
+
+    &-button {
+      margin-top: 16px;
+      @include redbutton;
     }
   }
 }
