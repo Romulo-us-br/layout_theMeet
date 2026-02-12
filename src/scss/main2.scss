@@ -1,0 +1,269 @@
+@import 'utils/base';
+@import 'utils/mixins';
+
+// Variables
+$color-black: #000000;
+$color-white: #ffffff;
+$color-red: #E4002B;
+$color-grey: #f6f6f6;
+$color-text-grey: #666666;
+
+// Breakpoints
+$tablet: 744px;
+$desktop: 1260px;
+
+@mixin on-tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: $color-black;
+  background-color: $color-white;
+}
+
+// Header
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 20px;
+  color: $color-white;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  &__logo img {
+    height: 40px;
+    filter: invert(1); // Make logo white if it's black, assuming it's transparent png
+  }
+
+  &__nav {
+    display: none; // Hidden on mobile
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+
+    li a {
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $color-white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+
+    img {
+      height: 20px;
+      filter: invert(1);
+    }
+    
+    .menu-label {
+      display: none;
+      @include on-tablet {
+        display: block;
+      }
+    }
+  }
+}
+
+// Hero
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $color-white;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3); // Overlay for text readability
+    }
+  }
+
+  &__title {
+    font-family: 'Times New Roman', serif;
+    font-size: 4rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    @include on-tablet {
+      font-size: 6rem;
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+}
+
+// Info Grid (Hours + Exhibitions)
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  gap: 60px;
+
+  @include on-desktop {
+    grid-template-columns: 1fr 2fr; // 1/3 for Hours, 2/3 for Exhibitions (approx)
+    padding: 80px 40px;
+    gap: 100px;
+  }
+}
+
+.section-title {
+  font-family: 'Times New Roman', serif;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  border-top: 1px solid $color-black;
+  padding-top: 20px;
+}
+
+// Hours
+.hours {
+  .location-hours {
+    margin-bottom: 40px;
+  }
+
+  .location-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .hours-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: $color-text-grey;
+  }
+}
+
+// Exhibitions
+.exhibitions {
+  &-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .exhibition-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .exhibition-image {
+    background-color: #ddd; // Placeholder color
+    aspect-ratio: 3/4; // Portrait aspect ratio often used by museums
+    margin-bottom: 15px;
+    
+    &.placeholder {
+       position: relative;
+       &::after {
+         content: 'Image Placeholder';
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         color: #888;
+       }
+    }
+  }
+
+  .exhibition-tag {
+    color: $color-red;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .exhibition-title {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .exhibition-date {
+    font-size: 0.9rem;
+    color: $color-text-grey;
+  }
+}

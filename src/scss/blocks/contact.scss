@@ -1,0 +1,39 @@
+.contact{
+  @include page-grid;
+  padding-bottom: 100px;
+  &-h2title{
+    grid-column: 1/-1;
+  }
+  &-container{
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  &-content{
+    &-title{
+
+    }
+    &-subtitle{
+      color:#161616;
+    }
+    &-link{
+      text-decoration: none;
+      color:black;
+    }
+    &-form{
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      &-input{
+
+      }
+      &-textarea{
+        
+      }
+      &-button{
+        margin-top: 16px;
+      }
+    }
+  }
+}

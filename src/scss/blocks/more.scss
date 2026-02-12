@@ -1,0 +1,32 @@
+.more {
+  @include page-grid;
+  padding-block: 100px;
+  &-h2title{
+    grid-column: 1/-1;
+    padding-bottom: 48px;
+  }
+  &-container {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: 40px;
+  }
+
+  &-content {
+    grid-column: 1/-1;
+
+    &-background {
+      width: 100%;
+    }
+    &-desc{
+      text-align: center;
+      &-redtitle{
+        color:red;
+        padding-block: 24px 4px;
+      }
+      &-regulartext{
+
+      }
+    }
+  }
+}

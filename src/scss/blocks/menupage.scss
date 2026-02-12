@@ -8,7 +8,7 @@
   left: 0;
   z-index: 2;
   position: fixed;
-  background-color: black;
+  background-color: $red;
   color:white;
   transform: scaleX(0); 
   transform-origin: left;
@@ -26,5 +26,60 @@
     justify-content: space-between;
     align-items: center;
     height: 10vh;
+  }
+  &-container{
+    grid-column: 1/-1;
+    height: 90vh;
+    &-nav{
+      padding-bottom: 32px;
+      &-ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+    }
+  }
+  &-contact{
+      padding-bottom: 8px;
+
+      &>ul{
+        display: flex;
+        gap: 8px;
+        flex-direction: column;
+        list-style: none;
+        &>li{
+          &>a{
+            color:white;
+          }
+        }
+      }
+  }
+  &>a{
+    color:white;
+  }
+}
+
+.link{
+  color:white;
+  text-decoration: none;
+  position: relative;
+
+  &::after{
+    position: absolute;
+    content:"";
+
+    height: 2px;
+    width: 100%;
+    left: 0;
+    bottom: -6px;
+    background-color: white;
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  &:hover::after{
+    transform: scaleX(1);
   }
 }

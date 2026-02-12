@@ -1,0 +1,59 @@
+.nows {
+  @include page-grid;
+  &-header{
+    grid-column: 1/-1;
+    padding-bottom: 40px;
+    &-h2title{
+
+    }
+    &-regulartext{
+
+    }
+  }
+  &__container {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: 40px;
+  }
+
+  &-content {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: subgrid;
+
+    &:nth-child(2) {
+      .nows-content-background-img {
+        max-width: 88px;
+        max-height: 88px;
+      }
+    }
+
+    &-background {
+      grid-column: span 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+
+      &-img {
+        width: 130px;
+        max-height: 130px;
+      }
+    }
+    &-desc{
+      grid-column: 1/-1;
+      &-redsubtitle{
+        color:red;
+      }
+      &-regulartext{
+
+      }
+    }
+  }
+&-button{
+  grid-column: 1/-1;
+  background-color: #D12D35;
+  color: white;
+  height: 56px;
+}
+}

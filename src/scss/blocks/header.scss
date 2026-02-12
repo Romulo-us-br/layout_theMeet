@@ -7,14 +7,8 @@
     height: 100vh;
 
     @include on-tablet {
-      background-position: 100% auto;
+      background-size: 100% 100%;
     }
-
-    @include on-desktop {
-      background-repeat: repeat;
-      background-size: contain;
-    }
-
 
     &__menu {
       grid-column: 1/-1;

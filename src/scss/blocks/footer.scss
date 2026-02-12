@@ -1,0 +1,13 @@
+.footer {
+  background-image: url(/dist/image/background/footer-background.png);
+  min-height: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include on-tablet{
+    min-height: 400px;
+  background-size: 100% 100%;
+
+  }
+}
